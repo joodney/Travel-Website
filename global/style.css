@@ -1,0 +1,498 @@
+/* ---------------
+   COLOR PALETTE
+   ---------------
+   #E25B45 (reddish orange)
+   #FF8357 (bright orange)
+   #FAC172 (light orange/gold)
+   #89D5C9 (turquoise)
+   #ADC865 (green)
+*/
+
+:root {
+  --color1: #E25B45; /* Reddish orange */
+  --color2: #FF8357; /* Bright orange */
+  --color3: #FAC172; /* Light orange/gold */
+  --color4: #89D5C9; /* Turquoise */
+  --color5: #ADC865; /* Green */
+
+  --font-main: 'Nunito', sans-serif;
+  --text-color: #333;
+  --bg-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+/* Header / Navigation */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--color1);
+}
+
+.main-header .logo h1 {
+  color: #fff;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--color3);
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, var(--color2), var(--color3));
+  color: #fff;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  background-color: var(--color4);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pdf-container {
+  border: 2px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.hero-btn:hover {
+  background-color: var(--color5);
+}
+
+/* Destinations Section */
+.destinations {
+  padding: 4rem 2rem;
+  background-color: var(--color4);
+  text-align: center;
+  color: #fff;
+}
+
+.destinations h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.destination-card {
+  background-color: #fff;
+  color: var(--text-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+}
+
+.destination-card img {
+  width: 100%;
+  display: block;
+}
+
+.destination-card h3 {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.destination-card p {
+  font-size: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+.destination-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+/* About Section */
+.about {
+  padding: 3rem 2rem;
+  background-color: var(--color5);
+  color: #fff;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* Footer */
+.main-footer {
+  background-color: var(--color1);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+
+/*---------------------  Services Section --------------------- */
+
+.services {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to right, var(--color5), var(--color4));
+  color: floralwhite;
+
+
+}
+.services-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.service-item {
+  position: relative;
+  height: 250px; 
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.service-title {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6); 
+  color: white;
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.service-description {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9); 
+  padding: 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: black;
+  opacity: 0; /* hidden at first*/
+  transform: translateY(100%); 
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.service-item:hover .service-description {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+/* --------------------- Video Section ------------------------ */
+
+.video-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, var(--color3), var(--color4));
+  color: white;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.video-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+
+.video-list li {
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: background 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-list li:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color2);
+}
+
+/* Styling the Number */
+.video-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color1); /* Light orange/gold */
+  margin-right: 0.5rem; /* Space between number and text */
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: none;
+}
+
+
+
+/* Schedule Section */
+.schedule-section {
+  padding: 4rem 2rem;
+  background-color: var(--color4);
+  text-align: center;
+  color: #fff;
+}
+
+.schedule-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.schedule-section p {
+  font-size: 1.2rem;
+  margin-top: -1rem;
+  color: #ffffffb0;
+}
+
+.schedule-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  color: var(--text-color);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ccc;
+  padding: 16px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.schedule-table thead th {
+  background-color: var(--color1);
+  color: #fff;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Align only activities to the left */
+.schedule-table td:nth-child(4) {
+  text-align: left;
+}
+
+/* Activities list */
+.schedule-table td ul {
+  list-style: disc;
+  list-style-position: inside;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.schedule-table td ul li {
+  padding: 6px 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.schedule-table td ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+  text-align: left;
+}
+
+.schedule-table td ul li {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.8;
+  padding-left: 0.5rem;
+  margin-bottom: 4px;
+}
+
+
+/* Feedback Section */
+.feedback-section {
+  padding: 4rem 2rem;
+  background-color: var(--color5);
+  color: #fff;
+  text-align: center;
+}
+
+.feedback-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-section p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: #ffffffcc;
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  color: var(--text-color);
+  text-align: left;
+}
+
+.feedback-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: var(--font-main);
+}
+
+.feedback-form textarea {
+  resize: vertical;
+}
+
+.rating-options {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.rating-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: normal;
+}
+
+.feedback-form button {
+  background-color: var(--color1);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-form button:hover {
+  background-color: var(--color3);
+}
+
+/* Gradient Background for Full Sections */
+.gradient-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, var(--color5), var(--color4));
+  color: #fff;
+  text-align: center;
+}

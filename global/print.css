@@ -1,0 +1,14 @@
+/* Only print the schedule table */
+body * {
+  display: none;
+}
+
+.schedule-table, .schedule-table * {
+  display: table;
+}
+
+caption {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
