@@ -1,0 +1,65 @@
+===============================
+API Documentation - Feedback
+===============================
+
+Base URL:
+---------
+https://app-44866f96-5647-42ea-bc10-86a5a28f7282.cleverapps.io
+
+-------------------------------------------
+1️⃣ Endpoint: Submit Feedback (Create)
+-------------------------------------------
+URL: /api/feedback.php
+Method: POST
+Content-Type: application/json
+
+Description:
+Submit a new feedback entry. Prevents duplicate emails.
+
+Request Body Example:
+{
+  "name": "Anis",
+  "email": "anis@example.com",
+  "rating": "Good",
+  "services": ["Custom Travel Plans", "Guided Tours"],
+  "preference": "Adventure",
+  "message": "Great website!"
+}
+
+Response (Success):
+{
+  "status": "success",
+  "message": "Feedback submitted successfully."
+}
+
+Response (Error - Email Exists):
+{
+  "status": "error",
+  "message": "Email already exists."
+}
+
+
+-------------------------------------------
+2️⃣ Endpoint: Get All Feedback
+-------------------------------------------
+URL: /api/feedback.php
+Method: GET
+
+Description:
+Fetches all feedback entries in descending order (latest first).
+
+Response Example:
+[
+  {
+    "id": 1,
+    "name": "Anis",
+    "email": "anis@example.com",
+    "rating": "Good",
+    "services": "Custom Travel Plans, Guided Tours",
+    "preference": "Adventure",
+    "comments": "Great website!",
+    "submitted_at": "2025-05-19 21:00:00"
+  },
+  ...
+]
+

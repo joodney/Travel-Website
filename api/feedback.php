@@ -4,7 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 header("Content-Type: application/json");
-// الاتصال بقاعدة البيانات باستخدام environment variables
+
+// connecting to clever cloud
 $host = getenv("MYSQL_ADDON_HOST");
 $db   = getenv("MYSQL_ADDON_DB");
 $user = getenv("MYSQL_ADDON_USER");
@@ -17,7 +18,7 @@ if ($conn->connect_error) {
     exit();
 }
 
-// إذا كان الطلب POST → إضافة feedback
+// request post --> send feedback
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
 
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $preference = $conn->real_escape_string($data["preference"]);
     $comments = $conn->real_escape_string($data["message"]);
 
-    // تحقق من تكرار البريد الإلكتروني
+    // email constraint
     $check = $conn->query("SELECT id FROM feedback WHERE email = '$email'");
     if ($check->num_rows > 0) {
         echo json_encode(["status" => "error", "message" => "Email already exists."]);
@@ -46,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// إذا كان الطلب GET → استرجاع جميع feedbacks
+// get to display requests
 elseif ($_SERVER["REQUEST_METHOD"] === "GET") {
     $result = $conn->query("SELECT * FROM feedback ORDER BY submitted_at DESC");
     $feedbacks = [];
