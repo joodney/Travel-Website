@@ -4,9 +4,8 @@
   <section class="feedback-section gradient-section">
     <h2>How was your experience?</h2>
     <p>We'd love to hear your thoughts.</p>
-    <script src="js/validation.js"></script>
 
-    <form class="feedback-form" name="feedbackForm" method="post" action="/api/feedback.php" onsubmit="return validateForm()">
+    <form class="feedback-form" name="feedbackForm" onsubmit="return submitFeedback(event)">
       <fieldset>
         <legend>Personal Info</legend>
 
@@ -53,8 +52,6 @@
     </form>
   </section>
 </main>
+
 <script src="../validation.js"></script>
 <?php include('includes/footer.php'); ?>
-
-<!-- JavaScript validation -->
-<script src="js/validation.js"></script>

@@ -7,7 +7,6 @@ $db   = getenv("MYSQL_ADDON_DB");
 $user = getenv("MYSQL_ADDON_USER");
 $pass = getenv("MYSQL_ADDON_PASSWORD");
 
-
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     http_response_code(500);
