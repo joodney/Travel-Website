@@ -53,5 +53,44 @@
   </section>
 </main>
 
+<script>
+  async function submitFeedback(event) {
+    event.preventDefault();
+
+    const form = document.forms["feedbackForm"];
+    const name = form["name"].value;
+    const email = form["email"].value;
+    const rating = form["rating"].value;
+    const preference = form["preference"].value;
+    const message = form["message"].value;
+
+    const services = Array.from(form.querySelectorAll('input[name="services[]"]:checked'))
+                          .map(cb => cb.value);
+
+    const data = { name, email, rating, services, preference, message };
+
+    try {
+      const res = await fetch("/api/feedback.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      if (result.status === "success") {
+        alert("Thank you! Your feedback was submitted.");
+        form.reset();
+      } else {
+        alert("Error: " + result.message);
+      }
+    } catch (err) {
+      alert("Something went wrong. Try again later.");
+      console.error(err);
+    }
+
+    return false;
+  }
+</script>
+
 <script src="../validation.js"></script>
 <?php include('includes/footer.php'); ?>
