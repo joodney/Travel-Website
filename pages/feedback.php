@@ -6,7 +6,7 @@
     <p>We'd love to hear your thoughts.</p>
     <script src="js/validation.js"></script>
 
-    <form class="feedback-form" name="feedbackForm" method="post" action="api/feedback.php" onsubmit="return validateForm()">
+    <form class="feedback-form" name="feedbackForm" method="post" action="/api/feedback.php" onsubmit="return validateForm()">
       <fieldset>
         <legend>Personal Info</legend>
 
