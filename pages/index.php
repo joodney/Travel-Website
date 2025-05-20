@@ -15,16 +15,17 @@
   <script>
     async function loadHomeFeedback() {
       const container = document.getElementById("testimonialList");
+
       try {
-        const res = await fetch("/Travel-Website-main/api/feedback.php");
+        const res = await fetch("../api/feedbackapi.php"); // ✅ المسار الصحيح
         const data = await res.json();
 
-        if (data.length === 0) {
+        if (!Array.isArray(data) || data.length === 0) {
           container.innerHTML = "<p>No feedback yet.</p>";
           return;
         }
 
-        const latest = data.slice(0, 3);
+        const latest = data.slice(0, 3); // ✅ عرض آخر 3 تعليقات فقط
         const html = latest.map(entry => `
           <div class="testimonial-card">
             <strong>${entry.name}</strong>
@@ -34,9 +35,10 @@
         `).join("");
 
         container.innerHTML = html;
+
       } catch (err) {
         container.innerHTML = "<p style='color:red;'>❌ Failed to load feedback.</p>";
-        console.error(err);
+        console.error("Error loading feedback:", err);
       }
     }
 
