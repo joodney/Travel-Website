@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include(__DIR__ . '/../includes/header.php'); ?>
 
 <main>
   <section class="feedback-section gradient-section">
@@ -81,7 +81,7 @@
       services
     };
 
-    fetch("/api/feedback.php", {
+    fetch("../api/feedback.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -107,4 +107,4 @@
   }
 </script>
 
-<?php include('includes/footer.php'); ?>
+<?php include(__DIR__ . '/../includes/footer.php'); ?>

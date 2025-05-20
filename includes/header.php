@@ -11,10 +11,11 @@
 
   <!-- CSS style sheet -->
 
-  <link rel="stylesheet" href="/global/main.css" type="text/css" />
+<link rel="stylesheet" href="../global/style.css" type="text/css"/>
+<link rel="stylesheet" href="../global/print.css" media="print">
 <link rel="preconnect" href="https://fonts.gstatic.com" />
-<link rel="stylesheet" href="/global/print.css" media="print" />
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+
 
 
 

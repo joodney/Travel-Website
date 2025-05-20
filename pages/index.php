@@ -16,7 +16,7 @@
     async function loadHomeFeedback() {
       const container = document.getElementById("testimonialList");
       try {
-        const res = await fetch("/api/feedback.php");
+        const res = await fetch("/Travel-Website-main/api/feedback.php");
         const data = await res.json();
 
         if (data.length === 0) {
